@@ -3,19 +3,19 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import os
 print("test")
-def mostrar_imagen_aleatoria():
+def show_image():
     # Lista de nombres de archivos de las imágenes
-    imagenes = [f for f in os.listdir() if f.endswith('.jpg') or f.endswith('.png')]
+    images = [f for f in os.listdir() if f.endswith('.jpg') or f.endswith('.png')]
     
     # Seleccionar una imagen al azar
-    imagen_seleccionada = random.choice(imagenes)
+    selected_image = random.choice(image)
     
     # Leer la imagen seleccionada
-    img = mpimg.imread(imagen_seleccionada)
+    img = mpimg.imread(selected_image)
     
     # Mostrar la imagen
     plt.imshow(img)
     plt.show()
 
 if __name__ == "__main__":
-    mostrar_imagen_aleatoria()
+    show_image()
