@@ -2,7 +2,7 @@ import random
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import os
-
+print("test")
 def mostrar_imagen_aleatoria():
     # Lista de nombres de archivos de las imágenes
     imagenes = [f for f in os.listdir() if f.endswith('.jpg') or f.endswith('.png')]
