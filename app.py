@@ -1,21 +1,20 @@
-import random
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+from flask import Flask, render_template
 import os
-print("test")
-def show_image():
-    # Lista de nombres de archivos de las imágenes
-    images = [f for f in os.listdir() if f.endswith('.jpg') or f.endswith('.png')]
-    
-    # Seleccionar una imagen al azar
-    selected_image = random.choice(image)
-    
-    # Leer la imagen seleccionada
-    img = mpimg.imread(selected_image)
-    
-    # Mostrar la imagen
-    plt.imshow(img)
-    plt.show()
+import random
 
-if __name__ == "__main__":
-    show_image()
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    # List all images in the static/img directory
+    imgs = os.listdir('static/')
+    # Convert relative paths to absolute paths
+    imgs = ['static/' + file for file in imgs]
+    # Select a random image
+    random_img = random.choice(imgs)
+    # Render the template with the path to the random image
+    return render_template('index.html', img=random_img)
+
+if __name__ == '__main__':
+    app.run(debug=True,port=5793, host='0.0.0.0')
+
